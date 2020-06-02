@@ -1,0 +1,32 @@
+<section class="timer">
+  <h1 class="page-title">{{title}}</h1>
+  <h2 class="page-subtitle">
+    {{description}}
+  </h2>
+  <div class="pomodoros">
+    {{pomodoros-render estimation}}
+    <button class="icon-add"></button>
+  </div>
+  <div class="timer-block timer-block--{{categoryId}}">
+    <div class="timer-border">
+      <div class="timer-center">
+        <p class="timer-subtitle hide">BREAK</p>
+        <p class="timer-minutes hide"></p>
+        <p class="timer-text">Let's do it!</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-buttons timer-buttons">
+  <button class="button go-to button--green start-timer" id="btnStart">Start</button>
+  <button class="button button--red hide" id="btnFailPomodora">Fail Pomodora</button>
+  <button class="button button--green hide" id="btnFinishPomodora">Finish Pomodora</button>
+  <button class="button button--green hide" id="btnStartPomodora">Start Pomodora</button>
+  <button class="button button--blue hide" id="btnFinish">Finish Task</button>
+</section>
+<button class="arrow-left arrow-main" title="Go to Global List" id="arrowLeft">
+  <i class="icon-arrow-left"></i>
+</button>
+<button class="arrow-main arrow-right hidden" title="Go to Report" id="arrowRight">
+  <i class="icon-arrow-right"></i>
+</button>

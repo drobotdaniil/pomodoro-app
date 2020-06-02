@@ -1,0 +1,40 @@
+{
+  "name": "pomodoro-app",
+  "description": "SPA 'Pomodoro' using patterns like MVC, pub/sub, observer",
+  "author": "Daniil Drobot <funplacebo7@gmail.com>",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^4.5.2",
+    "core-js": "^3.6.4",
+    "cross-fetch": "^3.0.4",
+    "css-loader": "^1.0.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "file-loader": "^1.1.11",
+    "handlebars": "^4.7.2",
+    "handlebars-loader": "^1.7.1",
+    "less": "^3.8.0",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "regenerator-runtime": "^0.13.5",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.10.2",
+    "@babel/polyfill": "^7.8.3",
+    "highcharts": "^8.0.0",
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1"
+  },
+  "dependencies": {
+    "firebase": "^7.7.0"
+  }
+}

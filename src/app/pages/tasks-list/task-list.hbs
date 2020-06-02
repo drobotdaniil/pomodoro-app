@@ -1,0 +1,93 @@
+<section class="tasks">
+  <h1 class="page-title">
+    Daily Task List<button class="add-task-plus icon-add">
+    </button>
+  </h1>
+  {{#if show}}
+  <ul class="tabs">
+    <li class="tabs-item">
+      <a href="" class="tab-link" id="to-do">To Do</a>
+    </li>
+    <li class="tabs-item">
+      <a href="" class="tab-link" id="done">Done</a>
+    </li>
+  </ul>
+  <ul class="tabs selecting" id="selecting-daily">
+    <li class="tabs-item">
+      <a href="" class="tab-link">Select All</a>
+    </li>
+    <li class="tabs-item">
+      <a href="" class="tab-link">Deselect All</a>
+    </li>
+  </ul>
+  {{/if}}
+  <div class="priority-list">
+    {{#if dragFirstTaskToTop}}
+    <div class="message dragtask">
+      <h3 class="message__info">
+        Task added,<br />
+        drag it to the top 5 in daily task list
+      </h3>
+      <span class="icon-arrow_circle arrow"></span>
+    </div>
+    {{/if}}
+    {{#if addFirstTaskTemplate}}
+    <div class="message">
+      <img src="/images/tomato-add.svg" alt="tomato-add" class="tomato-add" />
+      <h3 class="message__info">Add your first task</h3>
+    </div>
+    {{/if}}
+    {{#if noAnyTaskTemplate}}
+    <div class="message">
+      <img src="/images/tomato-addv02.svg" alt="tomato-add" class="tomato-add" />
+      <h3 class="message__info">
+        You don’t have any tasks left. <br />
+        Add new tasks to stay productive.
+      </h3>
+    </div>
+    {{/if}}
+    {{#if noDoneTaskTemplate}}
+    <div class="message">
+      <h3 class="message__info">
+        You don’t have any completed tasks
+      </h3>
+    </div>
+    {{/if}}
+  </div>
+  {{#if showGlobal}}
+  <div class="global-list">
+    <div class="title-tabs">
+      <h4 class="global-list__title" id="globalList">
+        Global list <i class="icon-global-list-arrow-down arrow" id="globalArrow"></i>
+      </h4>
+      <ul class="tabs priority-tabs">
+        <li class="tabs-item">
+          <a href="" class="tab-link priority">All</a>
+        </li>
+        <li class="tabs-item">
+          <a href="" class="tab-link priority">Urgent</a>
+        </li>
+        <li class="tabs-item">
+          <a href="" class="tab-link priority">High</a>
+        </li>
+        <li class="tabs-item">
+          <a href="" class="tab-link priority">Middle</a>
+        </li>
+        <li class="tabs-item">
+          <a href="" class="tab-link priority">Low</a>
+        </li>
+      </ul>
+    </div>
+    <ul class="tabs selecting" id="selecting-global">
+      <li class="tabs-item">
+        <a href="" class="tab-link">Select All</a>
+      </li>
+      <li class="tabs-item">
+        <a href="" class="tab-link">Deselect All</a>
+      </li>
+    </ul>
+    <div class="global-list-output">
+    </div>
+  </div>
+  {{/if}}
+</section>

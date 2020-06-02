@@ -1,0 +1,556 @@
+@import (reference) "~@less-helpers-module/_mixins.less";
+@import (reference) "~@less-helpers-module/_variables.less";
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.579);
+  z-index: 100;
+  padding-top: 50px;
+}
+
+.modal {
+  background: @background-color;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  text-align: center;
+  color: @white;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 15px 42px 52px;
+
+  .modal__icons {
+    font-size: 20px;
+    margin-bottom: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left-buttons {
+      margin-left: -25px;
+    }
+
+    .right-buttons {
+      margin-right: -25px;
+
+      button:first-of-type {
+        margin-right: 14px;
+      }
+    }
+
+    .icons {
+      color: @bluegrey;
+
+      &:hover {
+        color: @spray;
+      }
+    }
+  }
+
+  .modal__title {
+    font-size: 28px;
+    font-family: @Roboto-bold;
+    line-height: 0.55;
+    letter-spacing: 0.7px;
+    margin-bottom: 23px;
+  }
+
+  .modal__subtitles {
+    font-size: 14px;
+    font-family: @Roboto-regular;
+    margin-bottom: 14px;
+    text-align: left;
+    line-height: 1.1;
+    font-weight: normal;
+  }
+
+  .input-decor {
+    font-size: 16px;
+    font-family: @Roboto-regular;
+    margin-bottom: 35px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid @slate;
+    color: @white;
+    padding-bottom: 6px;
+    outline: none;
+
+    &::placeholder {
+      color: @bluegrey;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .date {
+    color: @bluegrey;
+  }
+
+  .category-radio {
+    display: flex;
+
+    .radio {
+      display: none;
+    }
+
+    .label {
+      cursor: pointer;
+      color: @bluegrey;
+      margin-right: 13px;
+      display: flex;
+
+      &:hover {
+        color: @spray;
+      }
+
+      .circle {
+        margin-right: 7px;
+      }
+
+      .empty-circle {
+        display: none;
+      }
+    }
+
+    .radio:checked + .label {
+      color: @white;
+
+      .empty-circle {
+        display: block;
+      }
+    }
+
+    // CATEGORY STYLES RADIOS
+
+    .radio(@category);
+
+    // PRIORITY STYLES RADIOS
+
+    .radio(@priority);
+  }
+
+  .category-content {
+    .label {
+      margin-right: 13px;
+    }
+  }
+
+  .tomatoes {
+    margin-right: auto;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .tomato-input {
+    display: none;
+  }
+
+  .tomato-image:hover,
+  .tomato-image:hover ~ .tomato-image {
+    background-image: url("/images/fill\ tomato.svg");
+  }
+
+  .tomatoes:hover .tomato-image:hover,
+  .tomatoes:hover .tomato-image:hover ~ .tomato-image,
+  .tomato-input:checked ~ .tomato-image {
+    background-image: url("/images/fill\ tomato.svg");
+  }
+
+  .tomato-image,
+  .tomatoes:hover .tomato-image {
+    display: inline-block;
+    width: 21px;
+    height: 19px;
+    margin-right: 9px;
+    background-image: url("/images/empty-tomato.svg");
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .responsive(@laptop, {
+    width: 565px;
+
+    .category-radio {
+      .label{
+        margin-right: 30px;
+      }
+    }
+  });
+}
+
+.modal-remove {
+  .modal__title {
+    margin-bottom: 150px;
+  }
+
+  .modal__text {
+    font-family: @Roboto-light;
+    font-size: 36px;
+    color: @bluegrey;
+    margin-bottom: 196px;
+    line-height: 1.33;
+  }
+
+  .button {
+    width: 123px;
+
+    .responsive(@laptop, {
+      width: 168px;
+    });
+
+    .responsive(@mobile, {
+      max-width: 260px;
+      width: 100%;
+      height: 73px;
+    });
+  }
+}
+
+
+.responsive(@mobile, {
+  .modal-wrapper{
+    background: @background-color;
+    overflow-y: scroll;
+    padding-top: 0;
+    display: flex;
+  }
+
+  .modal{
+    width: 540px;
+    max-height: 820px;
+    height: 100%;
+    align-self: center;
+    padding: 15px 42px 15px;
+
+    .modal__subtitles {
+      font-size: 16px;
+    }
+
+    .modal__icons {
+      font-size: 28px;
+    }
+
+    .input-decor {
+      font-size: 18px;
+
+      &:last-child {
+        margin-bottom: 35px;
+      }
+    }
+
+    .category-content {
+      justify-content: space-between;
+
+      .label {
+        margin-right: 0;
+      }
+    }
+  }
+});
+
+.responsive(@mobile-portrait, {
+  .modal{
+    width: 100%;
+    max-width: 650px;
+  }
+});
+
+
+/*! jQuery UI - v1.12.1 - 2020-02-28
+* http://jqueryui.com
+* Includes: core.css, datepicker.css
+* Copyright jQuery Foundation and other contributors; Licensed MIT */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+	display: none;
+}
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none;
+}
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+	content: "";
+	display: table;
+	border-collapse: collapse;
+}
+.ui-helper-clearfix:after {
+	clear: both;
+}
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter:Alpha(Opacity=0); /* support: IE8 */
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+	cursor: default !important;
+  pointer-events: none;
+
+  .ui-state-default{
+    background: #303a42;
+  }
+}
+
+
+/* Icons
+----------------------------------*/
+.ui-icon {
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: -.25em;
+	position: relative;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+.ui-widget-icon-block {
+	left: 50%;
+	margin-left: -8px;
+	display: block;
+}
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-datepicker {
+	width: 17em;
+	padding: .4em .4em 0;
+  display: none;
+  background: @background-color;
+  border: 1px solid @slate;
+  border-radius: 5px;
+}
+.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: .2em 0;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: 2px;
+	width: 1.8em;
+	height: 1.8em;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+	top: 1px;
+}
+.ui-datepicker .ui-datepicker-prev {
+	left: 2px;
+}
+.ui-datepicker .ui-datepicker-next {
+  right: 2px;
+  text-align: right;
+}
+
+.ui-datepicker-next:before {
+  content: '>';
+}
+
+.ui-datepicker-prev:before {
+  content: '<';
+}
+
+.ui-datepicker .ui-datepicker-prev-hover {
+	left: 1px;
+}
+.ui-datepicker .ui-datepicker-next-hover {
+	right: 1px;
+}
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 1em;
+	margin: 1px 0;
+}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+	width: 45%;
+}
+.ui-datepicker table {
+	width: 100%;
+	font-size: .9em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+.ui-datepicker th {
+	padding: .7em .3em;
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+}
+.ui-datepicker td {
+	border: 0;
+	padding: 1px;
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: center;
+	text-decoration: none;
+}
+
+.ui-state-active{
+  background: @slate;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: .7em 0 0 0;
+	padding: 0 .2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5em .2em .4em;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	width: auto;
+	overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left;
+}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi {
+	width: auto;
+}
+.ui-datepicker-multi .ui-datepicker-group {
+	float: left;
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+	width: 95%;
+	margin: 0 auto .4em;
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+	width: 50%;
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+	width: 33.3%;
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+	width: 25%;
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+	border-left-width: 0;
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+	clear: left;
+}
+.ui-datepicker-row-break {
+	clear: both;
+	width: 100%;
+	font-size: 0;
+}
+
+/* RTL support */
+.ui-datepicker-rtl {
+	direction: rtl;
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+	right: 2px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+	left: 2px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+	clear: right;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+	float: left;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.ui-datepicker-rtl .ui-datepicker-group {
+	float: right;
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px;
+}
+
+/* Icons */
+.ui-datepicker .ui-icon {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	left: .5em;
+	top: .3em;
+}

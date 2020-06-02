@@ -1,0 +1,91 @@
+<section class="settings">
+  <h1 class="page-title">Settings</h1>
+  <h2 class="page-subtitle">Pomodoros settings</h2>
+  <ul class="tabs" id="tab-settings">
+    <li class="tabs-item">
+      <a href="" class="tab-link active" id="pomodoro" title="Pomodoros">Pomodoros</a>
+    </li>
+    <li class="tabs-item">
+      <a href="" class="tab-link" id="category" title="Categories">Categories</a>
+    </li>
+  </ul>
+  <div class="criterias">
+    <div class="criteria" id="work-time">
+      <div class="criteria__header">
+        <span class="title">WORK TIME</span>
+        <div class="criteria__value">
+          <button class="criteria__button">
+            &minus;
+          </button>
+          <span class="quantity" id="workTimeQuantity">15</span>
+          <button class="criteria__button">
+            +
+          </button>
+        </div>
+      </div>
+      <p class="criteria__description">
+        Please select a value between 15 and 25 <span>minutes</span>
+      </p>
+    </div>
+    <div class="criteria" id="work-iteration">
+      <div class="criteria__header">
+        <span class="title">WORK ITERATION</span>
+        <div class="criteria__value">
+          <button class="criteria__button">
+            &minus;
+          </button>
+          <span class="quantity" id="workIterQuantity">5</span>
+          <button class="criteria__button">
+            +
+          </button>
+        </div>
+      </div>
+      <p class="criteria__description">
+        Please select a value between 2 and 5 <span>iteration</span>
+      </p>
+    </div>
+    <div class="criteria" id="short-break">
+      <div class="criteria__header">
+        <span class="title">SHORT BREAK</span>
+        <div class="criteria__value">
+          <button class="criteria__button">
+            &minus;
+          </button>
+          <span class="quantity" id="shortBreakQuantity">3</span>
+          <button class="criteria__button">
+            +
+          </button>
+        </div>
+      </div>
+      <p class="criteria__description">
+        Please select a value between 3 and 5 <span>minutes</span>
+      </p>
+    </div>
+    <div class="criteria" id="long-break">
+      <div class="criteria__header">
+        <span class="title">LONG BREAK</span>
+        <div class="criteria__value">
+          <button class="criteria__button">
+            &minus;
+          </button>
+          <span class="quantity" id="longBreakQuantity">25</span>
+          <button class="criteria__button">
+            +
+          </button>
+        </div>
+      </div>
+      <p class="criteria__description">
+        Please select a value between 15 and 30 <span>minutes</span>
+      </p>
+    </div>
+  </div>
+</section>
+<section class="cycle">
+  <h3 class="cycle__title">Your cycle</h3>
+  <div class="graph"></div>
+  <div class="timeline"></div>
+  <section class="section-buttons">
+  <button class="button go-to button--blue">Go to Tasks</button>
+  <button class="button save button--green">Save</button>
+</section>
+</section>

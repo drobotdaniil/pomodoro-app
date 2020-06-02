@@ -1,0 +1,30 @@
+@import (reference) "~@less-helpers-module/_mixins.less";
+@import (reference) "~@less-helpers-module/_variables.less";
+
+.reports {
+  .tabs {
+    margin-top: 34px;
+    justify-content: center;
+  }
+
+  .graph {
+    max-width: 580px;
+    margin: 140px auto 80px;
+
+    .highcharts-series{
+      cursor: pointer;
+    }
+
+    .responsive(@laptop, {
+      margin: 180px auto;
+    });
+
+    .responsive(@mobile, {
+      margin: 100px auto;
+    });
+
+    .responsive(@mobile-portrait, {
+      margin: 215px auto 180px;
+    });
+  }
+}

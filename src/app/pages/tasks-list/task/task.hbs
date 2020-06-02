@@ -1,0 +1,31 @@
+<div class="task-item {{priority}} {{categoryId}}" data-id='{{id}}'>
+  <div class="task-item__left">
+    <div class="due-date {{#if overdue}} overdue {{/if}}">
+      {{#if today}}
+      <p class="month">TODAY</p>
+      {{else}}
+      <p class="day">{{deadlineDay}}</p>
+      <p class="month">{{deadlineMonth}}</p>
+      {{/if}}
+    </div>
+    <div class="remove hide">
+      <i class="icon-trash"></i>
+      <i class="icon-close hide"></i>
+    </div>
+  </div>
+  <div class="task-item__info">
+    <h4 class="title">{{title}}</h4>
+    <p class="description">
+      {{description}}
+    </p>
+  </div>
+  <div class="task-item__buttons">
+    <button class="icon-arrows-up edit-buttons" title="Add to Top"></button>
+    <button class="icon-edit edit-buttons" title="Edit Task"></button>
+  </div>
+  <div class="task-item__priority" {{#if hasTitle}} title="Go to Timer" {{/if}}>
+    <i class="icon-timer hide"></i>
+    <i class="icon-tomato"></i>
+    <span class="count">{{estimation}}</span>
+  </div>
+</div>

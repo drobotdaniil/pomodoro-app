@@ -1,0 +1,245 @@
+@import (reference) "~@less-helpers-module/_mixins.less";
+@import (reference) "~@less-helpers-module/_variables.less";
+
+.timer {
+  .page-title {
+    margin-bottom: 27px;
+  }
+
+  .page-subtitle {
+    font-size: 17px;
+    font-family: @Roboto-regular;
+    color: @white;
+    margin-bottom: 35px;
+  }
+
+  .pomodoros {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 55px;
+
+    .tomato {
+      width: 25px;
+      height: 23px;
+      margin-right: 11px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    button {
+      color: @bluegrey;
+      font-size: 15px;
+      margin-left: 11px;
+    }
+  }
+
+  .timer-block {
+    position: relative;
+    width: 264px;
+    height: 264px;
+    border: 5px solid @light-orange;
+    display: block;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 70px;
+    overflow: hidden;
+
+    .timer-center {
+      color: @white;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 163px;
+      height: 163px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      background: @background-color;
+      font-family: @Roboto-regular;
+
+      .timer-minutes {
+        font-size: 100px;
+        padding-bottom: 11px;
+        line-height: 0.8;
+      }
+
+      .timer-text {
+        white-space: nowrap;
+        font-size: 26px;
+        line-height: 0.8;
+      }
+
+      .timer-subtitle {
+        font-size: 15px;
+        margin-bottom: 11px;
+      }
+
+      .line-height {
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .timer-borders(@category);
+
+  .timer-border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 7px solid @background-color;
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    z-index: 999;
+  }
+
+  // styles timer
+
+  .full {
+    background-image: linear-gradient(90deg, #8da5b8 50%, transparent 0%),
+      linear-gradient(-90deg, #8da5b8 50%, transparent 0%);
+  }
+
+  .responsive(@laptop, {
+    .page-title {
+      margin-bottom: 40px;
+    } 
+
+    .page-subtitle {
+      margin-bottom: 45px;
+      font-size: 21px;
+    } 
+
+    .pomodoros {
+      margin-bottom: 127px;
+    } 
+
+    .timer-block {
+      margin-bottom:
+      243px;
+    }
+  });
+
+  .responsive(@mobile, {
+    .page-title {
+      position: relative; 
+      left: auto; 
+      top: auto; 
+      z-index: 99; 
+      font-size:30px;
+      margin-bottom: 28px;
+    } 
+
+    .page-subtitle {
+      top: auto; 
+      margin-bottom: 35px;
+      font-size: 19px;
+    } 
+
+    .pomodoros {
+      margin-bottom: 60px;
+    } 
+    
+    .timer-block {
+      margin-bottom:96px;
+    }
+  });
+
+  .responsive(@mobile-portrait, {
+    .timer-block {
+      margin-bottom: 263px;
+    } 
+    .pomodoros {
+      margin-bottom: 87px;
+    }
+  });
+}
+
+.main .timer-buttons {
+  .button {
+    width: 168px;
+    margin: 0 10px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .responsive(@mobile, {
+    .button {
+      font-size: 22.5px; 
+      width: 260px;
+    } 
+
+    .start-timer {
+      max-width: 560px;
+      width: 100%;
+    }
+  });
+}
+
+// RADIAL TIMER
+
+.radial-timer { 
+  width: 257px;
+  height: 257px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radial-timer .pie {
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
+  position: absolute;
+  background: #8da5b8;
+}
+
+.radial-timer .spinner {
+  z-index: 200;
+  border-right: none;
+  animation: rota linear infinite;
+}
+
+.radial-timer:hover .spinner,
+.radial-timer:hover .filler, 
+.radial-timer:hover .mask {
+  animation-play-state: running;    
+}
+
+.radial-timer .filler {
+  left: 50%;
+  opacity: 0;
+  z-index: 100;
+  animation: opa steps(1,end) infinite reverse;
+  border-left: none;
+}
+
+.radial-timer .mask {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background: @background-color;
+  opacity: 1;
+  z-index: 300;
+  animation: opa steps(1,end) infinite;
+}
+
+
+@keyframes rota {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes opa {
+  0% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}

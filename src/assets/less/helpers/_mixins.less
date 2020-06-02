@@ -1,0 +1,181 @@
+// Mixin for notifications bg
+.notifications(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value1: extract(@item, 2);
+    @value2: extract(@item, 3);
+    .@{name} {
+      background: @value1;
+      .notification-image {
+        background: @value2;
+      }
+    }
+  }
+}
+
+//radios
+.radio(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value: extract(@item, 2);
+
+    .radio[id="@{name}"]:hover + .label .circle {
+      background: @value;
+    }
+    .radio[id="@{name}"]:checked + .label .circle {
+      background: @value;
+    }
+  }
+}
+
+//for task-item's left block:active in global list,
+//  because if we use those colors like in priority
+//  list, it will look strange
+
+.global-list-active(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value: extract(@item, 2);
+
+    .@{name} {
+      .task-item__left {
+        &:active {
+          background: @value;
+        }
+      }
+    }
+  }
+}
+
+// for task-item's left block:active in primary list
+.removing-styles(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value1: extract(@item, 2);
+    @value2: extract(@item, 3);
+
+    .@{name} {
+      .task-item__left {
+        background: @value1;
+      }
+      
+      .task-item__left--selected {
+        background: @value2;
+      }
+    }
+  }
+}
+
+// priority styles
+.priority-styles(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value1: extract(@item, 2);
+    @value2: extract(@item, 3);
+    @value3: extract(@item, 4);
+
+    .@{name} {
+      .task-item__priority {
+        background: @value1;
+        &:hover {
+          background: @value2;
+        }
+      }
+      .title {
+        color: @value3;
+      }
+    }
+  }
+}
+
+// category styles
+.category-styles(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value: extract(@item, 2);
+
+    .@{name} {
+      border-left: 9px solid @value;
+
+      .task-group__title {
+        color: @value;
+      }
+
+      .circle {
+        background: @value;
+      }
+    }
+  }
+}
+
+// CRITERIA CIRCLES
+
+.criteria-items-circle(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @value: extract(@item, 2);
+
+    .criteria-item:nth-child(@{i}):before {
+      background: @value;
+    }
+  }
+}
+
+.setDefault-hover(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value1: extract(@item, 2);
+
+    .@{name} {
+      .task-item__priority {
+        &:hover {
+          background: @value1;
+        }
+      }
+    }
+  }
+}
+
+.timer-borders(@list) {
+  .i(length(@list));
+  .i(@i) when (@i > 0) {
+    .i(@i - 1);
+    @item: extract(@list, @i);
+    @name: extract(@item, 1);
+    @value: extract(@item, 2);
+
+    .timer-block--@{name} {
+      border-color: @value;
+    }
+  }
+}
+
+
+.responsive(@resolution; @rules){
+  @media only screen and (@resolution) {
+    @rules();
+  }
+}

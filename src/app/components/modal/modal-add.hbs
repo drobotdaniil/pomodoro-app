@@ -1,0 +1,86 @@
+<form class="modal">
+  <div class="modal__icons">
+    {{#if AddModal}}
+    <div class="left-buttons hidden">
+      {{/if}}
+      {{#if EditModal}}
+      <div class="left-buttons">
+        {{/if}}
+        <button class="icons icon-trash" id="topTrashBtn" type="button"></button>
+      </div>
+      <div class="right-buttons">
+        <button class="icons icon-close" id="topCloseBtn" type="button"></button>
+        <button class="icons icon-check" id="topCheckBtn"></button>
+      </div>
+    </div>
+    {{#if AddModal}}
+    <h2 class="modal__title">Add Task</h2>
+    {{/if}}
+    {{#if EditModal}}
+    <h2 class="modal__title">Edit Task</h2>
+    {{/if}}
+    <h4 class="modal__subtitles uppercase">TITLE</h4>
+    <input type="text" placeholder="Add title here" class="input-decor" id="taskTitle" autocomplete="off" required/>
+    <h4 class="modal__subtitles uppercase">DESCRIPTION</h4>
+    <input type="text" placeholder="Add description here" class="input-decor" id="taskDesc" autocomplete="off" required/>
+    <h4 class="modal__subtitles uppercase">CATEGORY</h4>
+    <div class="category-radio input-decor category-content">
+      <input type="radio" name="category" id="work" value="work" class="radio" checked />
+      <label for="work" class="label">
+        <span class="circle"> <span class="empty-circle"></span></span>Work
+      </label>
+      <input type="radio" name="category" id="education" value="education" class="radio" />
+      <label for="education" class="label">
+        <span class="circle"><span class="empty-circle"></span></span>Education
+      </label>
+      <input type="radio" name="category" id="hobby" value="hobby" class="radio" />
+      <label for="hobby" class="label">
+        <span class="circle"><span class="empty-circle"></span></span>Hobby
+      </label>
+      <input type="radio" name="category" id="sport" value="sport" class="radio" />
+      <label for="sport" class="label">
+        <span class="circle"><span class="empty-circle"></span></span>Sport
+      </label>
+      <input type="radio" name="category" id="other" value="other" class="radio" />
+      <label for="other" class="label">
+        <span class="circle"><span class="empty-circle"></span></span>Other
+      </label>
+    </div>
+    <h4 class="modal__subtitles uppercase">DEADLINE</h4>
+    <input type="text" class="input-decor date" id="deadline" autocomplete="off" readonly>
+    <h4 class="modal__subtitles">ESTIMATION</h4>
+    <div class="category-radio input-decor">
+      <div class="tomatoes">
+        <input class="tomato-input" id="rating-input-1-1" type="radio" name="estimation" value="5" />
+        <label class="tomato-image" for="rating-input-1-1"></label>
+        <input class="tomato-input" id="rating-input-1-2" type="radio" name="estimation" value="4" />
+        <label class="tomato-image" for="rating-input-1-2"></label>
+        <input class="tomato-input" id="rating-input-1-3" type="radio" name="estimation" value="3" checked />
+        <label class="tomato-image" for="rating-input-1-3"></label>
+        <input class="tomato-input" id="rating-input-1-4" type="radio" name="estimation" value="2" />
+        <label class="tomato-image" for="rating-input-1-4"></label>
+        <input class="tomato-input" id="rating-input-1-5" type="radio" name="estimation" value="1" />
+        <label class="tomato-image" for="rating-input-1-5"></label>
+      </div>
+    </div>
+    <h4 class="modal__subtitles uppercase">PRIORITY</h4>
+    <div class="category-radio input-decor">
+      <input type="radio" name="priority" id="urgent" value="urgent" class="radio" checked />
+      <label for="urgent" class="label">
+        <span class="circle"> <span class="empty-circle"></span></span>Urgent
+      </label>
+      <input type="radio" name="priority" id="high" value="high" class="radio" />
+      <label for="high" class="label">
+        <span class="circle"> <span class="empty-circle"></span></span>High
+      </label>
+      <input type="radio" name="priority" id="middle" value="middle" class="radio" />
+      <label for="middle" class="label">
+        <span class="circle"> <span class="empty-circle"></span></span>
+        Middle
+      </label>
+      <input type="radio" name="priority" id="low" value="low" class="radio" />
+      <label for="low" class="label">
+        <span class="circle"> <span class="empty-circle"></span></span>Low
+      </label>
+    </div>
+</form>

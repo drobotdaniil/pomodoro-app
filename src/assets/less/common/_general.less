@@ -1,0 +1,431 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  min-width: 520px;
+}
+
+body {
+  background: @background-color;
+  color: @bluegrey;
+  font-family: @PTsans-regular;
+  margin: 0 auto;
+}
+
+ul,
+li {
+  display: block;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: @bluegrey;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+  color: @white;
+
+  &:hover {
+    i {
+      color: @spray;
+    }
+  }
+}
+
+.wrapper {
+  max-width: 1440px;
+  padding: 0 91px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+// main styles
+
+.main {
+  margin-top: 110px;
+}
+
+// end main styles
+
+// some decor styles
+
+.active {
+  color: @white;
+}
+
+.visible {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+// end some decor styles
+
+// styles for pages titles/subtitles
+
+.page-title {
+  font-family: @Roboto-medium;
+  color: @white;
+  font-size: 28px;
+  margin-bottom: 25px;
+  letter-spacing: 0.7px;
+  line-height: 0.75;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.page-subtitle {
+  font-family: @Roboto-light;
+  font-size: 22px;
+  letter-spacing: 0.55px;
+  color: @bluegrey;
+  font-weight: 300;
+}
+
+// end styles for pages titles
+
+// tabs
+.tabs {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -16px;
+
+  .tabs-item {
+    font-size: 16px;
+    line-height: 0.9;
+    border-right: 1px solid @bluegrey;
+    padding-right: 10px;
+    margin-right: 10px;
+
+    .tab-link {
+      display: inline-block;
+    }
+
+    &:last-child {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      .tab-link {
+        color: @spray;
+      }
+
+      .active {
+        color: @white;
+      }
+    }
+  }
+}
+
+
+
+.responsive(@laptop, {
+  .wrapper{
+    padding: 0 51px;
+  }
+
+  .page-title{
+    font-size: 32px; 
+    margin-bottom: 59px;
+  }
+
+  .page-subtitle{  
+    font-size: 24px;
+  }
+
+  .tabs{
+    margin-top: -20px;
+
+    .tabs-item{
+      padding-right: 16px;
+      margin-right: 16px;
+      font-size: 20px;
+    }
+  }
+});
+
+.responsive(@mobile, {
+
+  .wrapper{
+    padding: 0 31px;
+  }
+
+  .page-title{
+    position: absolute;
+    left: 31px;
+    top: -85px;
+    z-index: 99;
+  }
+
+  .page-subtitle{
+    font-size: 27px;
+    position: relative;
+    top: 40px;
+  }
+
+  .tabs{
+    .tabs-item{
+      font-size: 24px;
+    }
+  }
+});
+
+.responsive(@mobile-portrait, {
+  .page-subtitle{
+    top: 73px;
+  }
+});
+
+
+// buttons
+.section-buttons {
+  display: flex;
+  justify-content: center;
+  height: 42px;
+
+  .button {
+    color: @white;
+    font-size: 18px;
+    font-family: @PTsans-bold;
+    line-height: 0.85;
+    display: inline-block;
+  }
+
+  .button--blue {
+    background: @darkskyblue;
+
+    &:hover {
+      background: @windows-blue;
+    }
+
+    &:active {
+      background: @pelorous;
+    }
+  }
+
+  .button--green {
+    background: @topaz;
+
+    &:hover {
+      background: @topaz-dark;
+    }
+
+    &:active {
+      background: @deepsea;
+    }
+  }
+  .button--red {
+    background: @tomato;
+
+    &:hover {
+      background: @darkcoral;
+    }
+
+    &:active {
+      background: @mahogany;
+    }
+  }
+}
+
+// end buttons
+
+//styles for circles
+
+.circle {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+  background: @bluegrey;
+
+  .empty-circle {
+    width: 9px;
+    height: 9px;
+    border-radius: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    border: 2px solid @background-color;
+  }
+}
+
+// end circles
+
+// tomato images
+
+.tomato {
+  display: inline-block;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-image: url("../../images/empty-tomato.svg");
+}
+
+// end tomato images
+
+// notications
+.wrapper-notification {
+  max-width: 1440px;
+  padding: 0 91px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9;
+  position: fixed;
+  bottom: 2%;
+  width: 100%;
+
+  .notification {
+    border: solid 1px @white;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 450px;
+    color: @white;
+    box-shadow: -15.6px 9px 30.7px 1.3px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+  
+    .notification-image {
+      font-size: 33px;
+      padding: 10px 16px;
+    }
+  
+    .notification-text {
+      padding-left: 13px;
+      font-size: 15px;
+      font-family: @Roboto-bold;
+      text-align: left;
+      width: 80%;
+      line-height: 0.9;
+    }
+  
+    .icon-close {
+      font-size: 24px;
+      margin-right: 16px;
+    }
+  }
+  
+  .notifications(@notifications);
+
+
+  .responsive(@laptop, {
+    padding: 0 51px;
+
+    .notification{
+      max-width: 548px;
+
+      .notification-image{
+        font-size: 40px;
+        padding: 12px 20px;
+      }
+  
+      .notification-text{
+        font-size: 18px;
+      }
+  
+      .icon-close {
+        font-size: 28px;
+      }
+    }
+  });
+
+  .responsive(@mobile, {
+    padding: 0 31px;
+
+    .notification{
+      max-width: 100%;
+
+      .notification-text{
+        width: 89%;
+      }
+    }
+  });
+}
+
+
+// end notofications
+
+//styles for main arrows in center
+
+.arrow-main {
+  color: @bluegrey;
+  position: absolute;
+  top: 50%;
+  font-size: 42px;
+
+  .responsive(@mobile, {
+    font-size: 66px;
+  });
+  
+  .responsive(@mobile-portrait, {
+    top: 40%;
+  });
+}
+
+.arrow-left {
+  left: 40px;
+}
+
+.arrow-right {
+  right: 40px;
+}
+
+
+.section-buttons {
+  .button{
+    margin: 0 10px;
+    width: 123px;
+  }
+}
+
+.ui-tooltip {
+  position: absolute;
+  z-index: 100;
+  font-size: 12px;
+  font-family: @Roboto-bold;
+  top: 5px;
+  left: 5px;
+  padding: 9px 15px;
+  color: @slate-two;
+  border-radius: 2px;
+  box-shadow: 0px 5px 8.3px 1.7px rgba(21, 43, 59, 0.03);
+  background-color: @tooltip;
+}
+
+.ui-tooltip::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  border: 5px solid transparent;
+  border-bottom: 5px solid @tooltip;
+}
